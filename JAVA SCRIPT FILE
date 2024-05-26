@@ -1,0 +1,53 @@
+
+const animeData = [
+    { title: "Naruto", genre: "Action", episodes: 500, image: "naru.jpg" },
+    { title: "One Piece", genre: "Adventure", episodes: 1000, image: "onepiece.jpg" },
+    { title: "Attack on Titan", genre: "Fantasy", episodes: 75, image: "aot.jpg" },
+    { title: "Demon Slayer", genre: "Action", episodes: 26, image: "demon slayer.jpg" },
+    { title: "Chainsaw Man", genre: "Action", episodes: 12, image: "csm.jpg" },
+    { title: "Bleach", genre: "Action", episodes: 366, image: "bleach.jpg" },
+    { title: "Death Note", genre: "Thriller", episodes: 37, image: "death-note.jpg" },
+    { title: "Jujutsu Kaisen", genre: "Fantasy", episodes: 24, image: "jjk.jpg" },
+    { title: "Spy X Family", genre: "Comedy", episodes: 25, image: "sxf.jpg" },
+    { title: "One Punch Man", genre: "Comedy", episodes: 24, image: "opm.jpg" },
+];
+
+// Function to create anime cards
+function createAnimeCards() {
+    const animeContainer = document.getElementById("anime-container");
+    
+    animeData.forEach(anime => {
+        // Create card element
+        const card = document.createElement("div");
+        card.classList.add("anime-card");
+
+        // Create card content
+        const title = document.createElement("h2");
+        title.textContent = anime.title;
+        title.classList.add("white-text"); // Add class for white text
+
+        const genre = document.createElement("p");
+        genre.textContent = `Genre: ${anime.genre}`;
+        genre.classList.add("white-text"); // Add class for white text
+
+        const episodes = document.createElement("p");
+        episodes.textContent = `Episodes: ${anime.episodes}`;
+        episodes.classList.add("white-text"); // Add class for white text
+
+        const image = document.createElement("img");
+        image.src = anime.image;
+        image.alt = anime.title;
+
+        // Append content to card
+        card.appendChild(title);
+        card.appendChild(genre);
+        card.appendChild(episodes);
+        card.appendChild(image);
+
+        // Append card to container
+        animeContainer.appendChild(card);
+    });
+}
+
+// Call the function to create anime cards when the page loads
+window.addEventListener("load", createAnimeCards);
